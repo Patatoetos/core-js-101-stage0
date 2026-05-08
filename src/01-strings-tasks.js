@@ -79,8 +79,8 @@ function extractNameFromTemplate(value) {
  *   'John Doe'  => 'J'
  *   'cat'       => 'c'
  */
-function getFirstChar(/* value */) {
-  throw new Error('Not implemented');
+function getFirstChar(value) {
+  return value[0];
 }
 
 /**
@@ -94,8 +94,16 @@ function getFirstChar(/* value */) {
  *   'cat'              => 'cat'
  *   '\tHello, World! ' => 'Hello, World!'
  */
-function removeLeadingAndTrailingWhitespaces(/* value */) {
-  throw new Error('Not implemented');
+function removeLeadingAndTrailingWhitespaces(value) {
+  const a = value.length;
+  const b = a - 1;
+  if (value[0] === ' ') {
+    return value.slice(2, a);
+  }
+  if (value[0] === '\t') {
+    return value.slice(1, b);
+  }
+  return value;
 }
 
 /**
@@ -109,8 +117,8 @@ function removeLeadingAndTrailingWhitespaces(/* value */) {
  *   'A', 5  => 'AAAAA'
  *   'cat', 3 => 'catcatcat'
  */
-function repeatString(/* value, count */) {
-  throw new Error('Not implemented');
+function repeatString(value, count) {
+  return value.repeat(count);
 }
 
 /**
@@ -125,8 +133,8 @@ function repeatString(/* value, count */) {
  *   'I like legends', 'end' => 'I like legs',
  *   'ABABAB','BA' => 'ABAB'
  */
-function removeFirstOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeFirstOccurrences(str, value) {
+  return str.replace(value, '');
 }
 
 /**
@@ -140,8 +148,9 @@ function removeFirstOccurrences(/* str, value */) {
  *   '<span>' => 'span'
  *   '<a>' => 'a'
  */
-function unbracketTag(/* str */) {
-  throw new Error('Not implemented');
+function unbracketTag(str) {
+  const a = str.length - 1;
+  return str.slice(1, a);
 }
 
 /**
@@ -154,10 +163,9 @@ function unbracketTag(/* str */) {
  *   'Thunderstruck' => 'THUNDERSTRUCK'
  *  'abcdefghijklmnopqrstuvwxyz' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
  */
-function convertToUpperCase(/* str */) {
-  throw new Error('Not implemented');
+function convertToUpperCase(str) {
+  return str.toLocaleUpperCase();
 }
-
 /**
  * Extracts e-mails from single string with e-mails list delimeted by semicolons
  *
@@ -173,8 +181,10 @@ function convertToUpperCase(/* str */) {
  *   ],
  *   'info@gmail.com' => ['info@gmail.com']
  */
-function extractEmails(/* str */) {
-  throw new Error('Not implemented');
+function extractEmails(str) {
+  const emailRegex = /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi;
+  const email = str.match(emailRegex);
+  return email;
 }
 
 /**
@@ -237,6 +247,7 @@ function encodeToRot13(/* str */) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
+
 function isString(/* value */) {
   throw new Error('Not implemented');
 }
@@ -265,8 +276,165 @@ function isString(/* value */) {
  *   'Q♠' => 50
  *   'K♠' => 51
  */
-function getCardId(/* value */) {
-  throw new Error('Not implemented');
+function getCardId(value) {
+  let id;
+  if (value === 'A♣') {
+    id = 0;
+  }
+  if (value === '2♣') {
+    id = 1;
+  }
+  if (value === '3♣') {
+    id = 2;
+  }
+  if (value === '4♣') {
+    id = 3;
+  }
+  if (value === '5♣') {
+    id = 4;
+  }
+  if (value === '6♣') {
+    id = 5;
+  }
+  if (value === '7♣') {
+    id = 6;
+  }
+  if (value === '8♣') {
+    id = 7;
+  }
+  if (value === '9♣') {
+    id = 8;
+  }
+  if (value === '10♣') {
+    id = 9;
+  }
+  if (value === 'J♣') {
+    id = 10;
+  }
+  if (value === 'Q♣') {
+    id = 11;
+  }
+  if (value === 'K♣') {
+    id = 12;
+  }
+  if (value === 'A♦') {
+    id = 13;
+  }
+  if (value === '2♦') {
+    id = 14;
+  }
+  if (value === '3♦') {
+    id = 15;
+  }
+  if (value === '4♦') {
+    id = 16;
+  }
+  if (value === '5♦') {
+    id = 17;
+  }
+  if (value === '6♦') {
+    id = 18;
+  }
+  if (value === '7♦') {
+    id = 19;
+  }
+  if (value === '8♦') {
+    id = 20;
+  }
+  if (value === '9♦') {
+    id = 21;
+  }
+  if (value === '10♦') {
+    id = 22;
+  }
+  if (value === 'J♦') {
+    id = 23;
+  }
+  if (value === 'Q♦') {
+    id = 24;
+  }
+  if (value === 'K♦') {
+    id = 25;
+  }
+  if (value === 'A♥') {
+    id = 26;
+  }
+  if (value === '2♥') {
+    id = 27;
+  }
+  if (value === '3♥') {
+    id = 28;
+  }
+  if (value === '4♥') {
+    id = 29;
+  }
+  if (value === '5♥') {
+    id = 30;
+  }
+  if (value === '6♥') {
+    id = 31;
+  }
+  if (value === '7♥') {
+    id = 32;
+  }
+  if (value === '8♥') {
+    id = 33;
+  }
+  if (value === '9♥') {
+    id = 34;
+  }
+  if (value === '10♥') {
+    id = 35;
+  }
+  if (value === 'J♥') {
+    id = 36;
+  }
+  if (value === 'Q♥') {
+    id = 37;
+  }
+  if (value === 'K♥') {
+    id = 38;
+  }
+  if (value === 'A♠') {
+    id = 39;
+  }
+  if (value === '2♠') {
+    id = 40;
+  }
+  if (value === '3♠') {
+    id = 41;
+  }
+  if (value === '4♠') {
+    id = 42;
+  }
+  if (value === '5♠') {
+    id = 43;
+  }
+  if (value === '6♠') {
+    id = 44;
+  }
+  if (value === '7♠') {
+    id = 45;
+  }
+  if (value === '8♠') {
+    id = 46;
+  }
+  if (value === '9♠') {
+    id = 47;
+  }
+  if (value === '10♠') {
+    id = 48;
+  }
+  if (value === 'J♠') {
+    id = 49;
+  }
+  if (value === 'Q♠') {
+    id = 50;
+  }
+  if (value === 'K♠') {
+    id = 51;
+  }
+  return id;
 }
 
 module.exports = {
